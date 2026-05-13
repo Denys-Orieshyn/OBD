@@ -41,7 +41,7 @@ SELECT status, COUNT(*) AS total_tasks
 FROM tasks
 GROUP BY status
 ```
-![](./images/zapit1.png)
+![](../images/zapit1.png)
 
 Запит групує всі завдання за їхнім статусом і підраховує кількість завдань у кожній групі. Це дає базове розуміння навантаження та прогресу.
 
@@ -53,7 +53,7 @@ SELECT project_id, MIN(deadline) AS first_deadline, MAX(deadline) AS last_deadli
 FROM tasks
 GROUP BY project_id;
 ```
-![](./images/zapit2.png)
+![](../images/zapit2.png)
 
 Запит показує часові рамки для кожного проєкту, знаходячи найбільш ранній та найбільш пізній дедлайни серед усіх завдань цього проєкту.
 
@@ -66,7 +66,7 @@ FROM "comments"
 GROUP BY user_id
 HAVING COUNT(*) > 1;
 ```
-![](./images/zapit3.png)
+![](../images/zapit3.png)
 
 Запит рахує кількість коментарів для кожного користувача, але завдяки HAVING виводить лише тих, хто залишив більше одного коментаря (найактивніші користувачі).
 
@@ -78,7 +78,7 @@ SELECT task_id, COUNT(comment_id) AS total_comments
 FROM "comments"
 GROUP BY task_id;
 ```
-![](./images/zapit4.png)
+![](../images/zapit4.png)
 
 Агрегація, яка показує рівень обговорення (кількість коментарів) у розрізі кожного конкретного завдання.
 
@@ -93,7 +93,7 @@ FROM tasks t
 INNER JOIN projects p ON t.project_id = p.project_id
 INNER JOIN users u ON t.assignee_id = u.user_id;
 ```
-![](./images/join1.png)
+![](../images/join1.png)
 
 Цей запит використовує INNER JOIN для об'єднання трьох таблиць.
 Він показує лише ті завдання, у яких є і прив'язаний проєкт, і призначений виконавець, замінюючи системні ID на читабельні назви.
@@ -107,7 +107,7 @@ FROM users u
 LEFT JOIN tasks t ON u.user_id = t.assignee_id
 GROUP BY u.email;
 ```
-![](./images/join2.png)
+![](../images/join2.png)
 
 Використання LEFT JOIN гарантує, що у вибірку потраплять абсолютно всі користувачі
 з бази, навіть ті (наприклад, адміністратор Alice), яким не призначено жодного завдання.
@@ -121,7 +121,7 @@ FROM task_tags tt
 RIGHT JOIN tags tg ON tt.tag_id = tg.tag_id
 WHERE tt.task_id IS NULL;
 ```
-![](./images/join3.png)
+![](../images/join3.png)
 
 RIGHT JOIN бере всі існуючі теги з довідника. 
 Фільтр WHERE ... IS NULL залишає лише ті теги, які жодного разу не були прив'язані до будь-якого завдання через проміжну таблицю.
@@ -140,7 +140,7 @@ WHERE project_id IN (
     WHERE manager_id = (SELECT user_id FROM users WHERE first_name = 'Alice')
 );
 ```
-![](./images/podzapit1.png)
+![](../images/podzapit1.png)
 
 Подвійний підзапит у WHERE. 
 Спочатку знаходимо ID Аліси, потім знаходимо всі ID проєктів, де вона менеджер, і нарешті виводимо завдання, що належать до цих проєктів.
@@ -155,7 +155,7 @@ SELECT
     (SELECT COUNT(*) FROM tasks t2 WHERE t2.project_id = t1.project_id) AS total_project_tasks
 FROM tasks t1;
 ```
-![](./images/podzapit2.png)
+![](../images/podzapit2.png)
 
 Це корельований підзапит (Correlated Subquery) у блоці SELECT.
 Для кожного рядка головного запиту він динамічно підраховує загальну кількість завдань у рамках поточного проєкту.
@@ -172,7 +172,7 @@ HAVING COUNT(task_id) > (
     FROM tasks
 );
 ```
-![](./images/podzapit3.png)
+![](../images/podzapit3.png)
 
 Запит знаходить співробітників, чиє навантаження перевищує середній показник.
 Підзапит у HAVING вираховує середню кількість завдань на одного виконавця, з яким порівнюється результат кожного згрупованого користувача.

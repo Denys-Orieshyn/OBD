@@ -192,8 +192,8 @@ JOIN users u ON t.assignee_id = u.user_id;
 
 Нижче наведено скріншоти з pgAdmin, які підтверджують успішне створення таблиць та наповнення їх тестовими даними.
 
-**Рис. 1. Створені таблиці в pgAdmin (Object Explorer)** ![Структура БД в pgAdmin](./images/created_tables.png)
+**Рис. 1. Створені таблиці в pgAdmin (Object Explorer)** ![Структура БД в pgAdmin](../images/created_tables.png)
 
-**Рис. 2. Успішне виконання запитів DDL та DML (Вкладка Messages)** ![Повідомлення про успішне виконання](./images/Successful_execution_of_requests.png)
+**Рис. 2. Успішне виконання запитів DDL та DML (Вкладка Messages)** ![Повідомлення про успішне виконання](../images/Successful_execution_of_requests.png)
 
-**Рис. 3. Результат вибірки даних (Перевірка зв'язків через SELECT)** ![Результат SELECT](./images/The_result_of_data_sampling.png)
+**Рис. 3. Результат вибірки даних (Перевірка зв'язків через SELECT)** ![Результат SELECT](../images/The_result_of_data_sampling.png)
