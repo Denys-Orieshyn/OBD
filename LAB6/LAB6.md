@@ -19,7 +19,7 @@
 
 ### Спочатку було ініціалізовано середовище Java/Maven-проєкту та налаштовано плагін Flyway
 ### для керування міграціями нашої існуючої бази даних PostgreSQL, розробленої після перших п`яти лаб
-![](./images/structure.png)
+![](../images/structure.png)
 
 ### Для коректної роботи Flyway було створено та налаштовано необхідну архітектуру файлів і каталогів:
 
@@ -48,14 +48,14 @@ INSERT INTO task_attachments (task_id, file_path) VALUES
     (1, '/uploads/logs/error_trace.txt'),
     (2, '/uploads/designs/home_page_v1.fig');
 ```
-![](./images/migration_1.png)
+![](../images/migration_1.png)
 
 # До:
-![](./images/DO_1.png)
+![](../images/DO_1.png)
 
 # Після:
 
-![](./images/after_1.png)
+![](../images/after_1.png)
 
 ## 2. Оновлення таблиці
 
@@ -74,14 +74,14 @@ UPDATE tasks SET estimated_hours = 8 WHERE task_id = 3;
 -- 3. Додаємо коментар до колонки для системної документації
 COMMENT ON COLUMN tasks.estimated_hours IS 'Оцінка часу на виконання завдання в годинах';
 ```
-![](./images/migration_2.png)
+![](../images/migration_2.png)
 
 # До:
-![](./images/DO_2.png)
+![](../images/DO_2.png)
 
 # Після:
 
-![](./images/after_2.png)
+![](../images/after_2.png)
 
 ## 3. Видалення стовпця та заміна логіки
 
@@ -102,14 +102,14 @@ UPDATE projects SET wiki_url = 'https://wiki.company.com/projects/1' WHERE proje
 UPDATE projects SET wiki_url = 'https://wiki.company.com/projects/2' WHERE project_id = 2;
 UPDATE projects SET wiki_url = 'https://wiki.company.com/projects/3' WHERE project_id = 3;
 ```
-![](./images/migration_3.png)
+![](../images/migration_3.png)
 
 # До:
-![](./images/DO_3.png)
+![](../images/DO_3.png)
 
 # Після:
 
-![](./images/after_3.png)
+![](../images/after_3.png)
 
 # Висновки
 Під час роботи було успішно проведено серію міграцій для нормалізованої схеми бази даних Task Management System.
