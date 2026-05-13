@@ -152,6 +152,7 @@ ALTER TABLE task_tags
 ```
 ### ERD після нормалізації
 ![erd_new](new_ER.png)
+
 Рисунок 2 – Оновлена нормалізована схема Task Management System
 ---
 ## Висновки
